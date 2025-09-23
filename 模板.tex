@@ -1,4 +1,4 @@
-\documentclass[a4paper,AutoFakeBold={2.7},UTF8]{ctexart} %纸张大小A4，文本类型为ctexart
+\documentclass[a4paper,AutoFakeBold={2.7},UTF8,11pt]{ctexart} %纸张大小A4，文本类型为ctexart
 %--------------------导言区：加载宏包，改变全局设置等--------------------%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}
 %超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
@@ -7,6 +7,7 @@
 \usepackage{bm}%公式加粗宏包
 \usepackage{arydshln}%分块矩阵宏包
 \usepackage{fontspec}%字体设置宏包
+\usepackage{mathrsfs}%允许使用\mathscr字体(花体字母)
 \usepackage{booktabs}%三线表宏包
 \usepackage{array}%表格宏包
 \usepackage{longtable}%跨页表格宏包
@@ -276,3 +277,4 @@
 
 参考文献测试\textsuperscript{\cite{参考文献1}\cite{参考文献2}}
 \end{document}%结束
+
