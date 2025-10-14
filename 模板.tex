@@ -82,16 +82,16 @@
 \section{图片插入}
 一张图中可以只有一张子图，也可以由多个子图构成一张图。
 \subsection{单个子图}
-\begin{figure}[htbp]
+\begin{figure}[H]%H代表强制在Here位置
 	\centering
-	\includegraphics[width=0.65\linewidth]{Cut_Method_Glass}
+	\includegraphics[width=0.5\linewidth]{Cut_Method_Glass}
 	\caption{图名}\label{图名}
 \end{figure}
 
 \subsection{多个子图}
 以2×2子图为例
 
-\begin{figure}[H] %H代表强制在Here位置
+\begin{figure}[H]
     \centering
     \subfloat[SubFigure1]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}} \hspace{0.3cm}
     \subfloat[SubFigure1]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}} \\
