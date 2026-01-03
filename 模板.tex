@@ -17,7 +17,15 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \usepackage{bm}%公式加粗宏包
 \usepackage{arydshln}%分块矩阵宏包
 \usepackage{fontspec}%字体设置宏包
+
 \usepackage{mathrsfs}%允许使用\mathscr字体(花体字母)
+\DeclareFontFamily{U}{rsfs}{\skewchar\font127 }% 手动配置 rsfs 字体族，确保在不同字号下使用正确的光学尺寸字体文件
+\DeclareFontShape{U}{rsfs}{m}{n}{%
+  <-6> rsfs5% <-6> rsfs5: 小于6pt使用rsfs5
+  <6-8> rsfs7% <6-8> rsfs7: 6-8pt使用rsfs7
+  <8-> rsfs10% <8-> rsfs10: 大于等于8pt使用rsfs10
+}{}
+
 \usepackage{booktabs}%三线表宏包
 \usepackage{array}%表格宏包
 
