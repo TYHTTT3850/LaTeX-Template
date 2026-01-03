@@ -70,7 +70,9 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \SetKwInput{KwIn}{输入}
 \SetKwInput{KwOut}{输出}
 
-%---------------------------------------------------------------------%
+\numberwithin{equation}{section}%公式按章节编号
+
+%---------------------------标题、作者、日期---------------------------%
 \title{\heiti \zihao{-2}\LaTeX 自制模板}%题目，黑体字，小二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
 \date{2024/7/11}%日期
@@ -298,9 +300,19 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 	
 	\bibitem{参考文献3}这是参考文献3
 \end{thebibliography}
+
 %--------------------------------附录--------------------------------%
-\section*{附录A}
-\addcontentsline{toc}{section}{附录A}%将附录A添加到目录中
+\appendix
+\ctexset{
+  section = {
+    number = \Alph{section},
+    name = {附录}
+  }
+}
+\numberwithin{equation}{section}
+
+\section{引用测试}
+
 外部网址链接：\url{www.bing.com}
 
 文内交叉引用测试：\ref{第一节二级标题}
@@ -316,6 +328,28 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 参考文献测试\textsuperscript{\cite{参考文献1}}
 
 参考文献测试\textsuperscript{\cite{参考文献1}\cite{参考文献2}}
+
+\section{附录公式}
+
+高维矩阵
+\begin{equation}
+	\begin{bmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n} \\
+		a_{21} & a_{22} & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & a_{n2} & \cdots & a_{nn}
+	\end{bmatrix}
+\end{equation}
+
+行列式：
+\begin{equation}
+  \begin{vmatrix}
+    f_1(a_1) & f_1(a_2) & \cdots & f_1(a_n) \\
+    f_2(a_1) & f_2(a_2) & \cdots & f_2(a_n) \\
+    \vdots   & \vdots   &        & \vdots   \\
+    f_n(a_1) & f_n(a_2) & \cdots & f_n(a_n)
+  \end{vmatrix}
+  = 0
+\end{equation}
+
 \end{document}%结束
-
-
