@@ -1,8 +1,9 @@
 \documentclass[a4paper,AutoFakeBold={2.7},UTF8,11pt]{ctexart} %纸张大小A4，文本类型为ctexart
+
 %--------------------导言区：加载宏包，改变全局设置等--------------------%
-\ctexset{section={format={\heiti \zihao{-3} \bfseries}},
-subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
-subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
+\ctexset{section={format={\heiti \zihao{-3} \bfseries}},%section样式设置
+subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},%subsection样式设置
+subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %subsubsection样式设置
 \setmainfont{Times New Roman}%英文设置为Times New Roman
 \renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
 \pagestyle{plain}%没有页眉，页脚包含页码
@@ -69,10 +70,12 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \renewcommand{\algorithmcfname}{算法}%algorithm2e 中文化
 \SetKwInput{KwIn}{输入}
 \SetKwInput{KwOut}{输出}
+
 %---------------------------------------------------------------------%
 \title{\heiti \zihao{-2}\LaTeX 自制模板}%题目，黑体字，小二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
 \date{2024/7/11}%日期
+
 %-----------------------------正文开始---------------------------------%
 \begin{document}%开始
 \maketitle%加上此指令才会显示文章标题，作者，日期
