@@ -37,6 +37,9 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \SetTblrStyle{caption-tag}{font=\small\bfseries\heiti}%设置“表号”（如表1）的字体
 \SetTblrStyle{caption-text}{font=\small\bfseries\heiti}%设置“标题内容”的字体
 \DefTblrTemplate{conthead}{default}{}%将跨页后的标题区域设置为空
+\SetTblrTemplate{conthead}{default}%应用设置，隐藏跨页后的表头
+\DefTblrTemplate{capcont}{default}{}%将跨页后的表号（如“表1（续）”）设置为空
+\SetTblrTemplate{capcont}{default}%应用设置
 
 \usepackage{caption}%题注设置宏包
 \DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
