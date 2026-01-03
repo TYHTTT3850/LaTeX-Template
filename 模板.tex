@@ -1,5 +1,15 @@
 \documentclass[a4paper,AutoFakeBold={2.7},UTF8,11pt]{ctexart} %纸张大小A4，文本类型为ctexart
 %--------------------导言区：加载宏包，改变全局设置等--------------------%
+\ctexset{section={format={\heiti \zihao{-3} \bfseries}},
+subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
+subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
+\setmainfont{Times New Roman}%英文设置为Times New Roman
+\renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
+\pagestyle{plain}%没有页眉，页脚包含页码
+
+\usepackage{parskip}%智能段落间距宏包
+\setlength{\parindent}{2em}  % 设置首行缩进为2个汉字宽度
+
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}
 %超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
 \usepackage{amsmath}%数学宏包1
@@ -10,25 +20,28 @@
 \usepackage{mathrsfs}%允许使用\mathscr字体(花体字母)
 \usepackage{booktabs}%三线表宏包
 \usepackage{array}%表格宏包
-\usepackage{longtable}%跨页表格宏包
+
+\usepackage{tabularray}%跨页表格宏包
+\UseTblrLibrary{booktabs} % 使用 booktabs 风格的线
+\DefTblrTemplate{contfoot-text}{default}{\small 接下页}%跨页时，底部的字
+\SetTblrTemplate{contfoot-text}{default}
+\DefTblrTemplate{caption-sep}{default}{\ }%修改分隔符模板，将默认的冒号(:)改为空格
+\SetTblrStyle{caption-tag}{font=\small\bfseries\heiti}%设置“表号”（如表1）的字体
+\SetTblrStyle{caption-text}{font=\small\bfseries\heiti}%设置“标题内容”的字体
+\DefTblrTemplate{conthead}{default}{}%将跨页后的标题区域设置为空
+
 \usepackage{caption}%题注设置宏包
+\DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
+\captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
+
 \usepackage{graphicx}%图片宏包
 \usepackage{float}%浮动体宏包，强制让浮动体在Here位置
 \usepackage{subfig}%子图宏包
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距设置
 \usepackage{wrapfig}%图片文字环绕宏包
-\usepackage{listings}%代码高亮宏包
 \usepackage{xcolor}%颜色处理宏包
-\usepackage{parskip}%智能段落间距宏包
-\DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
-\captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
-\setmainfont{Times New Roman}%英文设置为Times New Roman
-\renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
-\pagestyle{plain}%没有页眉，页脚包含页码
-\ctexset{section={format={\heiti \zihao{-3} \bfseries}},
-	subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
-	subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
-\setlength{\parindent}{2em}  % 设置首行缩进为2个汉字宽度
+
+\usepackage{listings}%代码高亮宏包
 \lstset{
     language=Python,       % 设置语言为 Python
     basicstyle=\ttfamily,  % 基本样式
@@ -40,6 +53,7 @@
     frame=single,        % 给代码加上边框
     breaklines=true      % 自动换行
     }
+
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}%中文友好的算法环境
 \renewcommand{\algorithmcfname}{算法}%algorithm2e 中文化
 \SetKwInput{KwIn}{输入}
@@ -127,56 +141,49 @@
 \subsection{跨页表格}
 展示跨页表格：
 
-\begin{longtable}{p{4cm}<{\centering} p{4cm}<{\centering} p{4cm}<{\centering}}
-    \caption{数据缺失值统计表}\label{数据缺失值统计表} \\
-    
-    \toprule
-    列名 & 非空单元格数量 & 数据类型 \\
-    \midrule
-    \endfirsthead %这之前的内容是第一页表格的表头
-
-    \toprule
-    列名 & 非空单元格数量 & 数据类型 \\
-    \midrule
-    \endhead %这之前的内容是跨页后表格的表头
-
-    \bottomrule
-    \multicolumn{3}{r}{接下页} %可以在最后一页之前表格的表尾加上“接下页”提示，“3”对应表格列数，“r”表示右对齐
-    \endfoot %这之前的内容是最后一页之前表格的表尾
-
-    \bottomrule
-    \endlastfoot %这之前的内容是最后一页表格的表尾
-	
-    customerID & 7043 & object \\
-    gender & 7043 & object \\
-    SeniorCitizen & 7043 & int64 \\
-    Partner & 7043 & object \\
-    Dependents & 7043 & object \\
-    tenure & 7043 & int64 \\
-    PhoneService & 7043 & object \\
-    MultipleLines & 7043 & object \\
-    InternetService & 7043 & object \\
-    OnlineSecurity & 7043 & object \\
-    OnlineBackup & 7043 & object \\
-    DeviceProtection & 7043 & object \\
-    TechSupport & 7043 & object \\
-    StreamingTV & 7043 & object \\
-    StreamingMovies & 7043 & object \\
-    Contract & 7043 & object \\
-    PaperlessBilling & 7043 & object \\
-    PaymentMethod & 7043 & object \\
-    MonthlyCharges & 7043 & float64 \\
-    TotalCharges & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-    Churn & 7043 & object \\
-\end{longtable}
+\begin{longtblr}[
+	caption={数据缺失值统计表},
+	label={数据缺失值统计表},
+	]{
+		% 列定义：Q类型，c=居中，4cm宽度
+		colspec = {Q[c,4cm] Q[c,4cm] Q[c,4cm]}, 
+		% 线条设置：使用 booktabs 风格
+		hline{1,Z} = {1pt},   % 第一行顶端(1)和最后一行底端(Z) 加粗线
+		hline{2}   = {0.5pt}, % 第一行下面(即表头下) 加细线
+		rowhead = 1, % 将第1行设为表头，跨页时自动重复
+}
+    %表格内容
+    列名 & 非空单元格数量 & 数据类型 \\ % 这是第1行，会被自动作为表头
+    customerID        & 7043 & object  \\
+    gender            & 7043 & object  \\
+    SeniorCitizen     & 7043 & int64   \\
+    Partner           & 7043 & object  \\
+    Dependents        & 7043 & object  \\
+    tenure            & 7043 & int64   \\
+    PhoneService      & 7043 & object  \\
+    MultipleLines     & 7043 & object  \\
+    InternetService   & 7043 & object  \\
+    OnlineSecurity    & 7043 & object  \\
+    OnlineBackup      & 7043 & object  \\
+    DeviceProtection  & 7043 & object  \\
+    TechSupport       & 7043 & object  \\
+    StreamingTV       & 7043 & object  \\
+    StreamingMovies   & 7043 & object  \\
+    Contract          & 7043 & object  \\
+    PaperlessBilling  & 7043 & object  \\
+    PaymentMethod     & 7043 & object  \\
+    MonthlyCharges    & 7043 & float64 \\
+    TotalCharges      & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+    Churn             & 7043 & object  \\
+\end{longtblr}
 
 \section{数学公式}
 \subsection{行内公式}
