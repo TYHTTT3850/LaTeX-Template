@@ -292,8 +292,9 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \Return $s$\;
 \end{algorithm}
 
-
 %-------------------------------参考文献-----------------------------%
+\begingroup% 临时强制让 section 标题居中
+\ctexset{section/format={\centering\heiti\zihao{-3}\bfseries}}
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{参考文献}%将参考文献添加到目录中
 	\bibitem{参考文献1}这是参考文献1
@@ -302,6 +303,7 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 	
 	\bibitem{参考文献3}这是参考文献3
 \end{thebibliography}
+\endgroup
 
 %--------------------------------附录--------------------------------%
 \appendix
