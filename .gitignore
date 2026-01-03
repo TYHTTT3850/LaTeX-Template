@@ -1,0 +1,48 @@
+## LaTeX build artifacts
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+
+## Bibliography (BibTeX/Biber)
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+## Index / glossaries
+*.idx
+*.ilg
+*.ind
+*.glg
+*.glo
+*.gls
+*.ist
+*.acn
+*.acr
+*.alg
+*.glsdefs
+
+## latexmk / build system
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+
+## Temporary/editor swap files
+*.swp
+*.swo
+*~
+
+## Package-specific auxiliary files
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.dvi
