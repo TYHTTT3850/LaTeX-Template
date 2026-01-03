@@ -40,6 +40,10 @@
     frame=single,        % 给代码加上边框
     breaklines=true      % 自动换行
     }
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}%中文友好的算法环境
+\renewcommand{\algorithmcfname}{算法}%algorithm2e 中文化
+\SetKwInput{KwIn}{输入}
+\SetKwInput{KwOut}{输出}
 %---------------------------------------------------------------------%
 \title{\heiti \zihao{-2}\LaTeX 自制模板}%题目，黑体字，小二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
@@ -249,6 +253,22 @@
   \end{vmatrix}
   = 0
 \end{equation}
+
+\section{算法示例}
+
+\begin{algorithm}
+\caption{累加求和算法}
+\KwIn{正整数 $n$}
+\KwOut{$1$ 到 $n$ 的和}
+
+初始化 $s \gets 0$\;
+\For{$i = 1$ \KwTo $n$}{
+    $s \gets s + i$\;
+}
+\Return $s$\;
+\end{algorithm}
+
+
 %-------------------------------参考文献-----------------------------%
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{参考文献}%将参考文献添加到目录中
