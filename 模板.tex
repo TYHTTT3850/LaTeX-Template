@@ -14,7 +14,6 @@ subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},%s
 subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %subsubsection样式设置
 \setmainfont{Times New Roman}%英文设置为Times New Roman
 \renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
-\pagestyle{plain}%没有页眉，页脚包含页码
 
 \usepackage{parskip}%智能段落间距宏包
 \setlength{\parindent}{2em}  % 设置首行缩进为2个汉字宽度
@@ -50,7 +49,8 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \usepackage{graphicx}%图片宏包
 \usepackage{float}%浮动体宏包，强制让浮动体在Here位置
 \usepackage{subfig}%子图宏包
-\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距设置
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includefoot]{geometry}%页边距设置
+\pagestyle{plain}%没有页眉，页脚包含页码
 \usepackage{wrapfig}%图片文字环绕宏包
 \usepackage{xcolor}%颜色处理宏包
 
@@ -356,5 +356,6 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
   \end{vmatrix}
   = 0
 \end{equation}
+
 
 \end{document}%结束
