@@ -149,30 +149,30 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \vspace{-2cm}
 
 \begin{center}
-	{\kaishu\zihao{2}\bfseries 本科毕业设计（论文）}
+	{\kaishu\zihao{2}\bfseries 封面标题}
 \end{center}
 
 \vspace{2cm}
 
 \begin{center}
-	\zihao{3}\songti\bfseries 题目：基于硬约束的物理信息神经网络设计散射板介电常数图
+	\zihao{3}\songti\bfseries 你的论文题目
 \end{center}
 
 \begin{center}
-	\zihao{3}\bfseries Hard-Constrained Physics-Informed Neural Networks for Permittivity Map Design of Scattering Plates
+	\zihao{3}\bfseries Your Thesis Title
 \end{center}
 
 \vspace{2cm}
 
 \begin{center}
 	\zihao{-3}
-	学\qquad 院：\uline{\makebox[8cm][c]{\bfseries\songti 数学与统计学院}} \\
-	专\qquad 业：\uline{\makebox[8cm][c]{\bfseries\songti 数学与应用数学}}\\
-	班\qquad 级：\uline{\makebox[8cm][c]{\bfseries\songti 2022数学与应用数学1班}}\\
-	学\qquad 号：\uline{\makebox[8cm][c]{\bfseries\songti 226002262}} \\
-	学生姓名：\uline{\makebox[8cm][c]{\bfseries\songti 陶宇行}} \\
-	指导教师：\uline{\makebox[8cm][c]{\bfseries\songti 邱常新}} \\
-	完成时间：\uline{\makebox[8cm][c]{\bfseries\songti 2026年4月18日}}
+	学\qquad 院：\uline{\makebox[8cm][c]{\bfseries\songti 你的学院}} \\
+	专\qquad 业：\uline{\makebox[8cm][c]{\bfseries\songti 你的专业}}\\
+	班\qquad 级：\uline{\makebox[8cm][c]{\bfseries\songti 你的班级}}\\
+	学\qquad 号：\uline{\makebox[8cm][c]{\bfseries\songti 你的学号}} \\
+	学生姓名：\uline{\makebox[8cm][c]{\bfseries\songti 你的姓名}} \\
+	指导教师：\uline{\makebox[8cm][c]{\bfseries\songti 你的导师}} \\
+	完成时间：\uline{\makebox[8cm][c]{\bfseries\songti 你的日期}}
 \end{center}
 
 \clearpage
@@ -185,10 +185,10 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \vspace{2cm}
 
-{\zihao{4}\ziju{0.2}我谨在此承诺：本人所写的毕业论文《基于硬约束的物理信息神经网络设计散射板介电常数图》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
+{\zihao{4}\ziju{0.2}我谨在此承诺：本人所写的毕业论文《你的题目》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
 
 \vspace{1cm} % 和正文稍微空开一点点距离（可根据喜好调整）
-\noindent\hfill % \hfill 就像一个横向的弹簧，把后面的表格狠狠挤到页面最右边
+\noindent\hfill % \hfill 就像一个横向的弹簧，把后面的表格挤到页面最右边
 \begin{tabular}{ll}
 	\kaishu\bfseries 承诺人（签名）：& \quad \\[0.5cm]
     & \kaishu\bfseries 年 \quad \kaishu\bfseries 月 \quad \kaishu\bfseries 日
@@ -208,19 +208,17 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \renewcommand{\abstractname}{\bfseries\songti\zihao{-2}摘\qquad \bfseries\songti\zihao{-2}要}
 
 \begin{center}
-	\songti\zihao{-2}\bfseries 基于硬约束的物理信息神经网络设计散射板介电常数图
+	\songti\zihao{-2}\bfseries 你的论文题目
 \end{center}
 
 \vspace{1cm}
 
 \begin{abstract}
-	\fangsong\zihao{-5}【{\bfseries\songti 摘要}】针对传统介电常数数值反演方法计算量大、收敛慢、极易陷入局部最优解的局限性，本文探讨了基于硬约束物理信息神经网络的散射板介电常数图逆向设计方案。首先，结合完美匹配层与 Helmholtz 方程，建立了能有效抑制边界反射的电磁波传播物理模型。其次，利用 PyTorch 框架构建了相应的 hPINN 模型，通过将边界条件直接嵌入网络结构，以期改善常规 PINN 物理一致性不高的问题。
-
-	本文主要研究比较软约束、罚函数法以及增强拉格朗日法这三种优化方法对该物理问题下的效果。数值实验结果表明：仅采用软约束容易由于物理权重不合理造成设计失败。罚函数法利用逐步增大惩罚程度的方法(例如迭代到$k=7$)可以得到较好的结果；而增强拉格朗日法通过引入拉格朗日乘子对不同的训练点赋予不同的相对重要性，得到一个具有良好的物理一致性的设计结果，而且所得到的结果与有限差分法正向物理验证场强形态以及位置都基本一致，验证了 hPINN 对散射板参数设计中有效性。
+	\fangsong\zihao{-5}【{\bfseries\songti 摘要}】你的摘要
 
 	\vspace{12pt}
 
-	\noindent【{\songti\bfseries 关键词}】硬约束物理信息神经网络；亥姆霍兹方程；完美匹配层；介电常数设计
+	\noindent【{\songti\bfseries 关键词}】你的关键词1；你的关键词2；你的关键词3；你的关键词4
 \end{abstract}
 \clearpage
 
@@ -228,19 +226,17 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \renewcommand{\abstractname}{\zihao{-2}\bfseries Abstract}
 
 \begin{center}
-	\zihao{-2}\bfseries Hard-Constrained Physics-Informed Neural Networks for Permittivity Map Design of Scattering Plates
+	\zihao{-2}\bfseries Your Thesis Title
 \end{center}
 
 \vspace{1cm}
 
 \begin{abstract}
-	\zihao{-5}【\textbf{ABSTRACT}】To address the limitations of traditional numerical inversion methods for permittivity—such as high computational cost, slow convergence, and a high susceptibility to falling into local optimization, this thesis explores an inverse design scheme for the permittivity map of a scattering plate based on a hard-constrained physics-informed neural network (hPINN). First, by combining perfectly matched layers (PML) with the Helmholtz equation, a physical model for electromagnetic wave propagation that effectively suppresses boundary reflections is established. Second, the hPINN model is constructed by the PyTorch. By embedding boundary conditions directly into the network architecture, this approach aims to improve upon the low physical consistency typically found in conventional PINNs.
-	
-	This thesis primarily investigates and compares the effectiveness of three optimization methods: soft constraints, the penalty method, and the augmented Lagrangian method and applied to this specific physical problem. Numerical experiment results indicate that relying solely on soft constraints often leads to design failure due to inappropriate physical weighting. The penalty function method can achieve better results by gradually increasing the penalty degree (for example, iterating up to $k=7$); meanwhile, the augmented Lagrangian method yields a design result with excellent physical consistency by introducing Lagrange multipliers to assign varying relative importance to different training points. Furthermore, the obtained results—both in terms of field strength morphology and spatial positioning—are highly consistent with the forward physical validation performed using the finite difference method, thereby verifying the effectiveness of the hPINN in the parameter design of scattering plates.
+	\zihao{-5}【\textbf{ABSTRACT}】Your Abstract
 
 	\vspace{12pt}
 
-	\noindent【\textbf{KEYWORDS}】Hard Constrained Physics-Informed Neural Networks; Helmholtz Equation; Perfectly Matched Layers; Permittivity Design
+	\noindent【\textbf{KEYWORDS}】Your Keyword 1; Your Keyword 2; Your Keyword 3; Your Keyword 4
 \end{abstract}
 \clearpage
 
@@ -461,9 +457,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 	\zihao{-3}\songti\bfseries 致\quad 谢
 \end{center}
 
-春逝夏至，岁月倏忽。在宁波大学数学与统计学院四年的求学时光即将画上圆满的句号 。本篇毕业论文的落笔，意味着我本科阶段的学习告一段落，这背后离不开许多师长、同窗与家人的指导与帮助。
-
-首先，我要向感谢我的指导教师邱常新老师。从最初的课题选定、理论学习，到 hPINN 模型的构建、网络损失函数的调试，再到最终论文的字斟句酌，邱老师都给予了莫大的帮助。其次，由衷感谢数学与统计学院的所有授课老师。是你们在讲台上的辛勤耕耘，为我打下了数学与应用数学理论基础。此外，我要感谢大学期间结识的诸位同窗与挚友。在枯燥的代码编写和漫长的模型训练过程中，是你们的相互探讨与陪伴，让充满挑战的道路变得生动有趣。最后，我要将最诚挚的感恩献给我的父母与家人。无论我面临何种学业压力或人生选择，你们永远是我最坚实的后盾，给予我无尽的包容、理解与支持。
+你的致谢
 
 \clearpage
 
