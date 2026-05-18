@@ -1,4 +1,4 @@
-\documentclass[a4paper,AutoFakeBold={2.7},UTF8,11pt]{ctexart} %纸张大小A4，文本类型为ctexart
+\documentclass[a4paper,AutoFakeBold={2.7},UTF8,zihao=5]{ctexart} %纸张大小A4，文本类型为ctexart
 
 %--------------------模板导言区：加载宏包，改变全局设置等--------------------%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}%超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
@@ -53,19 +53,45 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \pagestyle{plain}%没有页眉，页脚包含页码
 \usepackage{wrapfig}%图片文字环绕宏包
 \usepackage{xcolor}%颜色处理宏包
-
+\usepackage{tcolorbox}%用于绘制带有背景色、圆角、边框的彩色盒子。
 \usepackage{listings}%代码高亮宏包
-\lstset{
-    language=Python,       % 设置语言为 Python
-    basicstyle=\ttfamily,  % 基本样式
-    keywordstyle=\color{blue},  % 关键字颜色
-    commentstyle=\color{gray},  % 注释颜色
-    stringstyle=\color{red},    % 字符串颜色
-    numbers=left,        % 显示行号
-    numberstyle=\tiny,   % 行号字体
-    frame=single,        % 给代码加上边框
-    breaklines=true      % 自动换行
-    }
+
+% 加载 tcolorbox 的官方扩展库，：
+% 1. listings: 将底层的 listings 代码排版功能与 tcolorbox 结合，允许你在漂亮的盒子里直接渲染带语法高亮的代码(解锁 \begin{tcblisting} 环境)。
+% 2. skins: 加载高级皮肤引擎(基于 TikZ)，解锁更多高级视觉效果，例如阴影、渐变色、无缝拼接以及更复杂的圆角/边框样式。
+% 3. breakable: 允许分页。
+\tcbuselibrary{listings, skins, breakable}
+
+% 定义类似 GitHub 的浅灰色背景和边框颜色
+\definecolor{codegray}{HTML}{F6F8FA}
+\definecolor{framegray}{HTML}{D1D5DA}
+\definecolor{keywordcolor}{HTML}{005CC5}
+\definecolor{stringcolor}{HTML}{032F62}
+\definecolor{commentcolor}{HTML}{6A737D}
+
+\setmonofont{Consolas}%设置给代码环境用的等宽字体
+
+% 定义一个新的环境：code
+\newtcblisting{code}[1][]{
+  listing only,
+  breakable,
+  colback=codegray,        % 背景色
+  colframe=framegray,      % 边框色
+  boxrule=1pt,             % 边框粗细
+  arc=3pt,                 % 圆角大小
+  outer arc=3pt,
+  left=4pt, right=4pt, top=2pt, bottom=2pt, % 内部边距
+  listing options={
+	mathescape=true,%允许注释使用latex公式
+    basicstyle=\ttfamily\small, % 等宽字体和小字号
+    breaklines=true,            % 自动换行
+    keywordstyle=\color{keywordcolor}\bfseries,
+    stringstyle=\color{stringcolor},
+    commentstyle=\color{commentcolor},
+    showstringspaces=false,
+    language=#1,% 允许传入语言参数
+  }
+}
 
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}%中文友好的算法环境
 \renewcommand{\algorithmcfname}{算法}%algorithm2e 中文化
@@ -316,8 +342,7 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
     number = \Alph{section},
     name = {附录}
   }
-}
-\numberwithin{equation}{section}
+}%设置附录部分的一级标题格式
 
 \section{引用测试}
 
@@ -360,7 +385,17 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
   = 0
 \end{equation}
 
+\section{附录代码}
+
+\begin{code}[Python]
+# 这是一段 Python 代码演示
+def fetch_data(url):
+    """
+    Fetch data from the given URL.
+    """
+    message = "Loading data..."
+    print(message)
+    return {"status": 200, "data": [1, 2, 3]}
+\end{code}
 
 \end{document}%结束
-
-
