@@ -1,23 +1,22 @@
-\documentclass[a4paper,AutoFakeBold={2.7},UTF8,zihao=5]{ctexart} %纸张大小A4，文本类型为ctexart
+\documentclass[a4paper,AutoFakeBold={2.7},UTF8,zihao=5,twoside]{ctexart} %纸张大小A4，文本类型为ctexart
 
 %--------------------模板导言区：加载宏包，改变全局设置等--------------------%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}%超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
-\usepackage{amsmath}%数学排版宏包
+\usepackage{mathtools}%数学公式排版宏包
 \usepackage{amssymb}%数学字体宏包
 \usepackage{bbm}%提供\mathbbm字体
 \usepackage{bm}%公式加粗宏包
 \usepackage{arydshln}%分块矩阵宏包
 \usepackage{fontspec}%字体设置宏包
 
-\ctexset{section={format={\heiti \zihao{-3} \bfseries}},%section样式设置
-subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},%subsection样式设置
-subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %subsubsection样式设置
+\ctexset{section={format={\songti \zihao{-2} \bfseries \centering},beforeskip = 0.5\baselineskip,afterskip = 0.5\baselineskip,},%section样式设置
+subsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt},%subsection样式设置
+subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt}} %subsubsection样式设置
 \setmainfont{Times New Roman}%英文设置为Times New Roman
-\renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
+\renewcommand{\baselinestretch}{1.5}%改变默认行距为1.5倍行距
 
 \usepackage{parskip}%智能段落间距宏包
 \setlength{\parindent}{2em}  % 设置首行缩进为2个汉字宽度
-
 
 \usepackage{mathrsfs}%允许使用\mathscr字体(花体字母)
 \DeclareFontFamily{U}{rsfs}{\skewchar\font127 }% 手动配置 rsfs 字体族，确保在不同字号下使用正确的光学尺寸字体文件
@@ -43,18 +42,44 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \SetTblrTemplate{capcont}{default}%应用设置
 
 \usepackage{caption}%题注设置宏包
-\DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
-\captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
+\DeclareCaptionFont{songti}{\songti}%为caption宏包定义heiti命令
+\DeclareCaptionFont{wuhao}{\zihao{5}}%为caption宏包定义wuhao命令
+\captionsetup{labelsep=space,font={wuhao,bf,songti},skip=5pt}%题注设置
 
 \usepackage{graphicx}%图片宏包
 \usepackage{float}%浮动体宏包，强制让浮动体在Here位置
 \usepackage{subfig}%子图宏包
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includefoot]{geometry}%页边距设置
-\pagestyle{plain}%没有页眉，页脚包含页码
+
+\usepackage{fancyhdr} % 引入页眉页脚宏包
+% 设置页眉页脚样式
+\pagestyle{fancy}
+\fancyhf{} % 清空默认的页眉和页脚
+
+% --- 核心：奇偶页眉设置 ---
+% 偶数页
+\fancyhead[CE]{偶数页页眉} 
+
+% 奇数页
+\fancyhead[CO]{奇数页页眉} 
+
+% --- 底部页码 ---
+\fancyfoot[C]{\thepage} % 底部居中显示页码
+
+\fancypagestyle{headonly}{
+  \fancyfoot{} % 这一句的作用是单独清空页脚
+  % 至于页眉，它会自动继承你之前写好的 fancy 奇偶页眉设置
+}
+
+\setlength{\headheight}{14pt}%页眉高度稍微调大一点
+
+\raggedbottom %取消文字必须强制贴齐纸张底部
+
 \usepackage{wrapfig}%图片文字环绕宏包
 \usepackage{xcolor}%颜色处理宏包
 \usepackage{tcolorbox}%用于绘制带有背景色、圆角、边框的彩色盒子。
 \usepackage{listings}%代码高亮宏包
+\usepackage{ulem}%文本下划线与删除线宏包
 
 % 加载 tcolorbox 的官方扩展库，：
 % 1. listings: 将底层的 listings 代码排版功能与 tcolorbox 结合，允许你在漂亮的盒子里直接渲染带语法高亮的代码(解锁 \begin{tcblisting} 环境)。
@@ -107,25 +132,120 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 %---------------------------标题、作者、日期---------------------------%
 \title{\heiti \zihao{-2}\LaTeX 自制模板}%题目，黑体字，小二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
-\date{2024/7/11}%日期
+\date{}%日期
 
 %-----------------------------正文开始---------------------------------%
 \begin{document}%开始
-\maketitle%加上此指令才会显示文章标题，作者，日期
-\vspace{-10pt}%减少作者与标题的间距
-\newpage
+
+%-----------------------------封面---------------------------------%
+\thispagestyle{empty}%封面不需要页码页眉
+\vspace*{-3cm}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{配图/封面校徽.pdf}
+\end{figure}
+
+\vspace{-2cm}
+
+\begin{center}
+	{\kaishu\zihao{2}\bfseries 本科毕业设计（论文）}
+\end{center}
+
+\vspace{2cm}
+
+\begin{center}
+	\zihao{3}\songti\bfseries 题目：基于硬约束的物理信息神经网络设计散射板介电常数图
+\end{center}
+
+\begin{center}
+	\zihao{3}\bfseries Hard-Constrained Physics-Informed Neural Networks for Permittivity Map Design of Scattering Plates
+\end{center}
+
+\vspace{2cm}
+
+\begin{center}
+	\zihao{-3}
+	学\qquad 院：\uline{\makebox[8cm][c]{\bfseries\songti 数学与统计学院}} \\
+	专\qquad 业：\uline{\makebox[8cm][c]{\bfseries\songti 数学与应用数学}}\\
+	班\qquad 级：\uline{\makebox[8cm][c]{\bfseries\songti 2022数学与应用数学1班}}\\
+	学\qquad 号：\uline{\makebox[8cm][c]{\bfseries\songti 226002262}} \\
+	学生姓名：\uline{\makebox[8cm][c]{\bfseries\songti 陶宇行}} \\
+	指导教师：\uline{\makebox[8cm][c]{\bfseries\songti 邱常新}} \\
+	完成时间：\uline{\makebox[8cm][c]{\bfseries\songti 2026年4月18日}}
+\end{center}
+
+\clearpage
+
+%-----------------------------诚信承诺书---------------------------------%
+\thispagestyle{headonly}
+\begin{center}
+	{\kaishu\zihao{2}\bfseries\ziju{1.5} 诚信承诺}
+\end{center}
+
+\vspace{2cm}
+
+{\zihao{4}\ziju{0.2}我谨在此承诺：本人所写的毕业论文《基于硬约束的物理信息神经网络设计散射板介电常数图》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
+
+\vspace{1cm} % 和正文稍微空开一点点距离（可根据喜好调整）
+\noindent\hfill % \hfill 就像一个横向的弹簧，把后面的表格狠狠挤到页面最右边
+\begin{tabular}{ll}
+	\kaishu\bfseries 承诺人（签名）：& \quad \\[0.5cm]
+    & \kaishu\bfseries 年 \quad \kaishu\bfseries 月 \quad \kaishu\bfseries 日
+\end{tabular}
+
+\clearpage
+
+%-----------------------------目录---------------------------------%
+\pagenumbering{roman}%从目录开始到摘要页码用罗马数字编号
 \begin{center}
 	\tableofcontents%生成目录并居中，目录往往要编译两次才会正确显示
 \end{center}
-\newpage
+
+\clearpage
+
+%-----------------------------中文摘要---------------------------------%
+\renewcommand{\abstractname}{\bfseries\songti\zihao{-2}摘\qquad \bfseries\songti\zihao{-2}要}
+
 \begin{center}
-	\addcontentsline{toc}{section}{摘要}%将摘要添加到目录中
-	\section*{摘要}
+	\songti\zihao{-2}\bfseries 基于硬约束的物理信息神经网络设计散射板介电常数图
 \end{center}
 
-此处是摘要，换行用双反斜杠或者空一行，双反斜杠换行没有首行缩进，空一行换行有首行缩进，也就是分段操作。\\
-\heiti 关键词：\songti 关键词1，关键词2
-\newpage
+\vspace{1cm}
+
+\begin{abstract}
+	\fangsong\zihao{-5}【{\bfseries\songti 摘要}】针对传统介电常数数值反演方法计算量大、收敛慢、极易陷入局部最优解的局限性，本文探讨了基于硬约束物理信息神经网络的散射板介电常数图逆向设计方案。首先，结合完美匹配层与 Helmholtz 方程，建立了能有效抑制边界反射的电磁波传播物理模型。其次，利用 PyTorch 框架构建了相应的 hPINN 模型，通过将边界条件直接嵌入网络结构，以期改善常规 PINN 物理一致性不高的问题。
+
+	本文主要研究比较软约束、罚函数法以及增强拉格朗日法这三种优化方法对该物理问题下的效果。数值实验结果表明：仅采用软约束容易由于物理权重不合理造成设计失败。罚函数法利用逐步增大惩罚程度的方法(例如迭代到$k=7$)可以得到较好的结果；而增强拉格朗日法通过引入拉格朗日乘子对不同的训练点赋予不同的相对重要性，得到一个具有良好的物理一致性的设计结果，而且所得到的结果与有限差分法正向物理验证场强形态以及位置都基本一致，验证了 hPINN 对散射板参数设计中有效性。
+
+	\vspace{12pt}
+
+	\noindent【{\songti\bfseries 关键词}】硬约束物理信息神经网络；亥姆霍兹方程；完美匹配层；介电常数设计
+\end{abstract}
+\clearpage
+
+%-----------------------------英文摘要---------------------------------%
+\renewcommand{\abstractname}{\zihao{-2}\bfseries Abstract}
+
+\begin{center}
+	\zihao{-2}\bfseries Hard-Constrained Physics-Informed Neural Networks for Permittivity Map Design of Scattering Plates
+\end{center}
+
+\vspace{1cm}
+
+\begin{abstract}
+	\zihao{-5}【\textbf{ABSTRACT}】To address the limitations of traditional numerical inversion methods for permittivity—such as high computational cost, slow convergence, and a high susceptibility to falling into local optimization, this thesis explores an inverse design scheme for the permittivity map of a scattering plate based on a hard-constrained physics-informed neural network (hPINN). First, by combining perfectly matched layers (PML) with the Helmholtz equation, a physical model for electromagnetic wave propagation that effectively suppresses boundary reflections is established. Second, the hPINN model is constructed by the PyTorch. By embedding boundary conditions directly into the network architecture, this approach aims to improve upon the low physical consistency typically found in conventional PINNs.
+	
+	This thesis primarily investigates and compares the effectiveness of three optimization methods: soft constraints, the penalty method, and the augmented Lagrangian method and applied to this specific physical problem. Numerical experiment results indicate that relying solely on soft constraints often leads to design failure due to inappropriate physical weighting. The penalty function method can achieve better results by gradually increasing the penalty degree (for example, iterating up to $k=7$); meanwhile, the augmented Lagrangian method yields a design result with excellent physical consistency by introducing Lagrange multipliers to assign varying relative importance to different training points. Furthermore, the obtained results—both in terms of field strength morphology and spatial positioning—are highly consistent with the forward physical validation performed using the finite difference method, thereby verifying the effectiveness of the hPINN in the parameter design of scattering plates.
+
+	\vspace{12pt}
+
+	\noindent【\textbf{KEYWORDS}】Hard Constrained Physics-Informed Neural Networks; Helmholtz Equation; Perfectly Matched Layers; Permittivity Design
+\end{abstract}
+\clearpage
+
+\pagenumbering{arabic}%正文页码用阿拉伯数字编号
+
 \section{第一节一级标题}%第一节一级标题
 \songti \zihao{-4} 内容1%设置正文部分字体为宋体，小四大小
 \subsection{第一节二级标题} \label{第一节二级标题}
@@ -136,6 +256,9 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 (1)假设一：
 
 (2)假设二：
+
+\clearpage
+
 \section{第二节一级标题}
 内容2
 \subsection{第二节二级标题}
@@ -144,12 +267,15 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 内容2.1.1
 \subsection{第二节二级标题}
 内容2.2
+
+\clearpage
+
 \section{图片插入}
 一张图中可以只有一张子图，也可以由多个子图构成一张图。
 \subsection{单个子图}
 \begin{figure}[H]%H代表强制在Here位置
 	\centering
-	\includegraphics[width=0.5\linewidth]{Cut_Method_Glass}
+	\includegraphics[width=0.5\linewidth]{配图/时谐电流源J.pdf}
 	\caption{图名}\label{图名}
 \end{figure}
 
@@ -158,12 +284,14 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \begin{figure}[H]
     \centering
-    \subfloat[SubFigure1]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}} \hspace{0.3cm}
-    \subfloat[SubFigure2]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}} \\
-    \subfloat[SubFigure3]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}} \hspace{0.3cm}
-    \subfloat[SubFigure4]{\includegraphics[width=0.4\textwidth]{Cut_Method_Glass}}
+    \subfloat[SubFigure1]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \hspace{0.3cm}
+    \subfloat[SubFigure2]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \\
+    \subfloat[SubFigure3]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \hspace{0.3cm}
+    \subfloat[SubFigure4]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}}
     \caption{ 2×2布局 }
 \end{figure}
+
+\clearpage
 
 \section{表格插入}
 表格有普通的单页表格和长度较大的跨页表格
@@ -231,6 +359,8 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
     Churn             & 7043 & object  \\
     Churn             & 7043 & object  \\
 \end{longtblr}
+
+\clearpage
 
 \section{数学公式}
 \subsection{行内公式}
@@ -308,6 +438,8 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
   = 0
 \end{equation}
 
+\clearpage
+
 \section{算法示例}
 
 \begin{algorithm}
@@ -322,9 +454,22 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 \Return $s$\;
 \end{algorithm}
 
+\clearpage
+
+%-------------------------------致谢-----------------------------%
+\begin{center}
+	\zihao{-3}\songti\bfseries 致\quad 谢
+\end{center}
+
+春逝夏至，岁月倏忽。在宁波大学数学与统计学院四年的求学时光即将画上圆满的句号 。本篇毕业论文的落笔，意味着我本科阶段的学习告一段落，这背后离不开许多师长、同窗与家人的指导与帮助。
+
+首先，我要向感谢我的指导教师邱常新老师。从最初的课题选定、理论学习，到 hPINN 模型的构建、网络损失函数的调试，再到最终论文的字斟句酌，邱老师都给予了莫大的帮助。其次，由衷感谢数学与统计学院的所有授课老师。是你们在讲台上的辛勤耕耘，为我打下了数学与应用数学理论基础。此外，我要感谢大学期间结识的诸位同窗与挚友。在枯燥的代码编写和漫长的模型训练过程中，是你们的相互探讨与陪伴，让充满挑战的道路变得生动有趣。最后，我要将最诚挚的感恩献给我的父母与家人。无论我面临何种学业压力或人生选择，你们永远是我最坚实的后盾，给予我无尽的包容、理解与支持。
+
+\clearpage
+
 %-------------------------------参考文献-----------------------------%
 \begingroup% 临时强制让 section 标题居中
-\ctexset{section/format={\centering\heiti\zihao{-3}\bfseries}}
+\ctexset{section/format={\centering\songti\zihao{-2}\bfseries}}
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{参考文献}%将参考文献添加到目录中
 	\bibitem{参考文献1}这是参考文献1
@@ -362,6 +507,8 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
 
 参考文献测试\textsuperscript{\cite{参考文献1}\cite{参考文献2}}
 
+\clearpage
+
 \section{附录公式}
 
 高维矩阵
@@ -384,6 +531,8 @@ subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt
   \end{vmatrix}
   = 0
 \end{equation}
+
+\clearpage
 
 \section{附录代码}
 
