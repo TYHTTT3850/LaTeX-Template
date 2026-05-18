@@ -126,7 +126,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \numberwithin{equation}{section}%公式按章节编号
 
-\usepackage[backend=biber, style=gb7714-2015, autocite=superscript]{biblatex} %引入现代化的 biblatex 宏包，style=gb7714-2015 符合国内论文规范
+\usepackage[backend=biber, style=gb7714-2015]{biblatex} %引入现代化的 biblatex 宏包，style=gb7714-2015 符合国内论文规范
 \addbibresource{references.bib}% 指定外部的参考文献数据库文件(你需要新建一个 references.bib 文件)
 \defbibheading{centeredBib}[\bibname]{%封装一个自定义的参考文献标题样式(命名为 centeredBib)
   \begingroup
@@ -520,7 +520,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 文内交叉引用测试：\ref{第一节二级标题}
 
-公式引用测试\ref{(1)}
+公式引用测试\eqref{(1)}
 
 脚注测试\footnote{这是脚注}
 
@@ -528,9 +528,13 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 图片引用测试 图\ref{图名}
 
-参考文献测试\autocite{ref1}
+参考文献测试\upcite{ref1}
 
-参考文献测试\autocite{ref2}
+参考文献测试\upcite{ref2}
+
+文献一\parencite{ref1}
+
+文献二\parencite{ref2}
 
 \clearpage
 
