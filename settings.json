@@ -117,7 +117,7 @@
                 "pdflatex",
                 "pdflatex"
             ]
-        },
+        }
     ],
     //文件清理。此属性必须是字符串数组
     "latex-workshop.latex.clean.fileTypes": [
@@ -170,7 +170,7 @@
         "%LINE%",
         "-reuse-instance",
         "-inverse-search",
-        "\"D:/Microsoft VS Code/Code.exe\" \"D:/Microsoft VS Code/41dd792b5e/resources/app/out/cli.js\" --ms-enable-electron-run-as-node -r -g \"%f:%l\"", // 注意修改路径
+        "\"D:\\Microsoft VS Code\\bin\\code.cmd\" -r -g \"%f:%l\"", // 注意修改路径
         "%PDF%"
     ],
 
@@ -237,6 +237,6 @@
 	"git.openRepositoryInParentFolders": "never",
 	"python-envs.defaultEnvManager": "ms-python.python:system",
 	"python.defaultInterpreterPath": "",
-	"git.ignoreMissingGitWarning": true,
+	"git.ignoreMissingGitWarning": true
 
 }
