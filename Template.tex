@@ -572,4 +572,14 @@ def fetch_data(url):
     return {"status": 200, "data": [1, 2, 3]}
 \end{code}
 
+由于参考文献的排版使用了 biblatex 宏包，所以在有参考文献的情况下，需要的编译链为：
+
+\begin{equation*}
+	\text{XeLaTeX} \to \text{Biber} \to \text{XeLaTeX} \to \text{XeLaTeX}
+\end{equation*}
+
+如果使用的是 Vscode + LaTeX Workshop插件，那么可以参考我的配置，见模板目录下的 settings.json 文件。
+
+注意文件路径中，尽量不要有中文。
+
 \end{document}%结束
