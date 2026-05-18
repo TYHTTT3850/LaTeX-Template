@@ -48,7 +48,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \usepackage{graphicx}%图片宏包
 \usepackage{float}%浮动体宏包，强制让浮动体在Here位置
-\usepackage{subfig}%子图宏包
+\usepackage{subcaption}%子图宏包
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includefoot]{geometry}%页边距设置
 
 \usepackage{fancyhdr} % 引入页眉页脚宏包
@@ -149,17 +149,17 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \vspace{-2cm}
 
 \begin{center}
-	{\kaishu\zihao{2}\bfseries 封面标题}
+	\kaishu\zihao{-2}\bfseries 封面标题
 \end{center}
 
-\vspace{2cm}
+\vspace{1cm}
 
 \begin{center}
-	\zihao{3}\songti\bfseries 你的论文题目
+	\zihao{-2}\songti\bfseries 你的论文题目
 \end{center}
 
 \begin{center}
-	\zihao{3}\bfseries Your Thesis Title
+	\zihao{-2}\bfseries Your Thesis Title
 \end{center}
 
 \vspace{2cm}
@@ -180,12 +180,12 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 %-----------------------------诚信承诺书---------------------------------%
 \thispagestyle{headonly}
 \begin{center}
-	{\kaishu\zihao{2}\bfseries\ziju{1.5} 诚信承诺}
+	{\kaishu\zihao{-2}\bfseries\ziju{1.5} 诚信承诺}
 \end{center}
 
-\vspace{2cm}
+\vspace{1cm}
 
-{\zihao{4}\ziju{0.2}我谨在此承诺：本人所写的毕业论文《你的题目》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
+{\ziju{0.2}我谨在此承诺：本人所写的毕业论文《你的题目》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
 
 \vspace{1cm} % 和正文稍微空开一点点距离（可根据喜好调整）
 \noindent\hfill % \hfill 就像一个横向的弹簧，把后面的表格挤到页面最右边
@@ -243,7 +243,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \pagenumbering{arabic}%正文页码用阿拉伯数字编号
 
 \section{第一节一级标题}%第一节一级标题
-\songti \zihao{-4} 内容1%设置正文部分字体为宋体，小四大小
+内容1
 \subsection{第一节二级标题} \label{第一节二级标题}
 内容1.1
 \subsubsection{第一节三级标题}
@@ -269,22 +269,51 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \section{图片插入}
 一张图中可以只有一张子图，也可以由多个子图构成一张图。
 \subsection{单个子图}
+
 \begin{figure}[H]%H代表强制在Here位置
 	\centering
 	\includegraphics[width=0.5\linewidth]{配图/时谐电流源J.pdf}
 	\caption{图名}\label{图名}
 \end{figure}
 
-\subsection{多个子图}
-以2×2子图为例
+\subsection{多个子图(以2×2子图为例)}
 
 \begin{figure}[H]
     \centering
-    \subfloat[SubFigure1]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \hspace{0.3cm}
-    \subfloat[SubFigure2]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \\
-    \subfloat[SubFigure3]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}} \hspace{0.3cm}
-    \subfloat[SubFigure4]{\includegraphics[width=0.4\textwidth]{配图/时谐电流源J.pdf}}
-    \caption{ 2×2布局 }
+    % 第一行
+    \begin{subfigure}[b]{0.45\textwidth}%[b]表示这一行所有子图的底部边缘(通常是子图标题的最后一行水平基线)对齐在同一条水平线上。这是学术排版中最常用、看起来最整齐的设置。
+        \centering
+        \includegraphics[width=\textwidth]{配图/时谐电流源J.pdf}
+        \caption{SubFigure1}
+        \label{fig:sub1}
+    \end{subfigure}
+    \hfill % 使用 hfill 自动推开间距，比手动 hspace 更好控制
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{配图/时谐电流源J.pdf}
+        \caption{SubFigure2}
+        \label{fig:sub2}
+    \end{subfigure}
+    
+    \vspace{0.3cm} % 第一行和第二行之间的垂直间距
+
+    % 第二行
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{配图/时谐电流源J.pdf}
+        \caption{SubFigure3}
+        \label{fig:sub3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{配图/时谐电流源J.pdf}
+        \caption{SubFigure4}
+        \label{fig:sub4}
+    \end{subfigure}
+    
+    \caption{2×2布局}
+    \label{fig:main}
 \end{figure}
 
 \clearpage
