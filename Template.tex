@@ -208,9 +208,20 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 \clearpage
 
 %-----------------------------目录---------------------------------%
-\pagenumbering{roman}%从目录开始到摘要页码用罗马数字编号
+\pagenumbering{roman}
 \begin{center}
-	\tableofcontents%生成目录并居中，目录往往要编译两次才会正确显示
+    \makeatletter % 开启对 @ 符号的识别
+    \begingroup
+    \let\oldbfseries\bfseries
+    \renewcommand{\bfseries}{\songti\oldbfseries}   % 强制将目录里的加粗字体指向宋体加粗
+    \renewcommand{\heiti}{\songti}                 % 强制将目录里的黑体全部替换为宋体
+    
+    % --- 核心：强行给一级标题加上引导点，并保持宋体加粗 ---
+    \renewcommand*\l@section[2]{\@dottedtocline{1}{0em}{1.5em}{\songti\bfseries #1}{\songti\bfseries #2}}
+    
+    \tableofcontents%生成目录并居中
+    \endgroup
+    \makeatother % 关闭对 @ 符号的识别
 \end{center}
 
 \clearpage
@@ -492,17 +503,16 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \clearpage
 
+%-------------------------------参考文献-----------------------------%
+\printbibliography[heading=centeredBib, title=参考文献]%heading=centeredBib表示使用导言区定义的centeredBib来排版，title=参考文献表示参考文献列表的标题文字强制设定为“参考文献”。
+\clearpage
+
 %-------------------------------致谢-----------------------------%
-\begin{center}
-	\zihao{-3}\songti\bfseries 致\quad 谢
-\end{center}
+\section*{致谢}
+\addcontentsline{toc}{section}{致谢}
 
 你的致谢
 
-\clearpage
-
-%-------------------------------参考文献-----------------------------%
-\printbibliography[heading=centeredBib, title=参考文献]%heading=centeredBib表示使用导言区定义的centeredBib来排版，title=参考文献表示参考文献列表的标题文字强制设定为“参考文献”。
 \clearpage
 
 %--------------------------------附录--------------------------------%
