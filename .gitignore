@@ -10,7 +10,7 @@
 *.fot
 *.cb
 *.cb2
-*.pdf
+/*.pdf
 
 ## Bibliography (BibTeX/Biber)
 *.bbl
