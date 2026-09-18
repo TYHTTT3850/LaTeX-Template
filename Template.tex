@@ -53,19 +53,10 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 \usepackage{fancyhdr} % 引入页眉页脚宏包
 % 设置页眉页脚样式
-\pagestyle{fancy}
+\pagestyle{empty}
 \fancyhf{} % 清空默认的页眉和页脚
-
-% --- 核心：奇偶页眉设置 ---
-% 偶数页
-\fancyhead[CE]{偶数页页眉} 
-
-% 奇数页
-\fancyhead[CO]{奇数页页眉} 
-
 % --- 底部页码 ---
 \fancyfoot[C]{\thepage} % 底部居中显示页码
-
 \fancypagestyle{headonly}{
   \fancyfoot{} % 这一句的作用是单独清空页脚
   % 至于页眉，它会自动继承你之前写好的 fancy 奇偶页眉设置
@@ -147,120 +138,6 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 %-----------------------------正文开始---------------------------------%
 \begin{document}%开始
-
-%-----------------------------封面---------------------------------%
-\thispagestyle{empty}%封面不需要页码页眉
-\vspace*{-3cm}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{Figures/封面校徽.pdf}
-\end{figure}
-
-\vspace{-2cm}
-
-\begin{center}
-	\kaishu\zihao{-2}\bfseries 封面标题
-\end{center}
-
-\vspace{1cm}
-
-\begin{center}
-	\zihao{-2}\songti\bfseries 你的论文题目
-\end{center}
-
-\begin{center}
-	\zihao{-2}\bfseries Your Thesis Title
-\end{center}
-
-\vspace{2cm}
-
-\begin{center}
-	\zihao{-3}
-	学\qquad 院：\uline{\makebox[8cm][c]{\bfseries\songti 你的学院}} \\
-	专\qquad 业：\uline{\makebox[8cm][c]{\bfseries\songti 你的专业}}\\
-	班\qquad 级：\uline{\makebox[8cm][c]{\bfseries\songti 你的班级}}\\
-	学\qquad 号：\uline{\makebox[8cm][c]{\bfseries\songti 你的学号}} \\
-	学生姓名：\uline{\makebox[8cm][c]{\bfseries\songti 你的姓名}} \\
-	指导教师：\uline{\makebox[8cm][c]{\bfseries\songti 你的导师}} \\
-	完成时间：\uline{\makebox[8cm][c]{\bfseries\songti 你的日期}}
-\end{center}
-
-\clearpage
-
-%-----------------------------诚信承诺书---------------------------------%
-\thispagestyle{headonly}
-\begin{center}
-	{\kaishu\zihao{-2}\bfseries\ziju{1.5} 诚信承诺}
-\end{center}
-
-\vspace{1cm}
-
-{\ziju{0.2}我谨在此承诺：本人所写的毕业论文《你的题目》的主体均系本人独立完成，没有抄袭行为，凡涉及其他作者的观点和材料，均作了注释，若有不实，后果由本人承担并自愿接受校方的处分。}
-
-\vspace{1cm} % 和正文稍微空开一点点距离（可根据喜好调整）
-\noindent\hfill % \hfill 就像一个横向的弹簧，把后面的表格挤到页面最右边
-\begin{tabular}{ll}
-	\kaishu\bfseries 承诺人（签名）：& \quad \\[0.5cm]
-    & \kaishu\bfseries 年 \quad \kaishu\bfseries 月 \quad \kaishu\bfseries 日
-\end{tabular}
-
-\clearpage
-
-%-----------------------------目录---------------------------------%
-\pagenumbering{roman}
-\begin{center}
-    \makeatletter % 开启对 @ 符号的识别
-    \begingroup
-    \let\oldbfseries\bfseries
-    \renewcommand{\bfseries}{\songti\oldbfseries}   % 强制将目录里的加粗字体指向宋体加粗
-    \renewcommand{\heiti}{\songti}                 % 强制将目录里的黑体全部替换为宋体
-    
-    % --- 核心：强行给一级标题加上引导点，并保持宋体加粗 ---
-    \renewcommand*\l@section[2]{\@dottedtocline{1}{0em}{1.5em}{\songti\bfseries #1}{\songti\bfseries #2}}
-    
-    \tableofcontents%生成目录并居中
-    \endgroup
-    \makeatother % 关闭对 @ 符号的识别
-\end{center}
-
-\clearpage
-
-%-----------------------------中文摘要---------------------------------%
-\renewcommand{\abstractname}{\bfseries\songti\zihao{-2}摘\qquad \bfseries\songti\zihao{-2}要}
-
-\begin{center}
-	\songti\zihao{-2}\bfseries 你的论文题目
-\end{center}
-
-\vspace{1cm}
-
-\begin{abstract}
-	\fangsong\zihao{-5}【{\bfseries\songti 摘要}】你的摘要
-
-	\vspace{12pt}
-
-	\noindent【{\songti\bfseries 关键词}】你的关键词1；你的关键词2；你的关键词3；你的关键词4
-\end{abstract}
-\clearpage
-
-%-----------------------------英文摘要---------------------------------%
-\renewcommand{\abstractname}{\zihao{-2}\bfseries Abstract}
-
-\begin{center}
-	\zihao{-2}\bfseries Your Thesis Title
-\end{center}
-
-\vspace{1cm}
-
-\begin{abstract}
-	\zihao{-5}【\textbf{ABSTRACT}】Your Abstract
-
-	\vspace{12pt}
-
-	\noindent【\textbf{KEYWORDS}】Your Keyword 1; Your Keyword 2; Your Keyword 3; Your Keyword 4
-\end{abstract}
-\clearpage
 
 \pagenumbering{arabic}%正文页码用阿拉伯数字编号
 
@@ -505,14 +382,6 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 %-------------------------------参考文献-----------------------------%
 \printbibliography[heading=centeredBib, title=参考文献]%heading=centeredBib表示使用导言区定义的centeredBib来排版，title=参考文献表示参考文献列表的标题文字强制设定为“参考文献”。
-\clearpage
-
-%-------------------------------致谢-----------------------------%
-\section*{致谢}
-\addcontentsline{toc}{section}{致谢}
-
-你的致谢
-
 \clearpage
 
 %--------------------------------附录--------------------------------%
