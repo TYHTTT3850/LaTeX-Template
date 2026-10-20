@@ -29,6 +29,10 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 <8-> rsfs10% <8-> rsfs10: 大于等于8pt使用rsfs10
 }{}
 \numberwithin{equation}{section}%公式按 section 编号
+\usepackage{amsthm}%定理与证明排版宏包
+\theoremstyle{definition}%将之后通过 \newtheorem 定义的环境设为 definition 样式：标题加粗，正文使用直立字体。
+\newtheorem{problem}{Problem}%定义名为 problem 的环境，显示标题为 Problem，并自动编号
+\renewcommand{\proofname}{Proof}%proof 环境的默认标题设为 Proof
 
 %===============================================图片与题注===============================================%
 \usepackage{graphicx}%图片宏包
