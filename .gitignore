@@ -31,10 +31,8 @@
 *.alg
 *.glsdefs
 
-## latexmk / build system
-*.fdb_latexmk
-*.synctex.gz
-*.synctex.gz(busy)
+# LaTeX compilation output directory
+Build/
 
 ## Temporary/editor swap files
 *.swp
