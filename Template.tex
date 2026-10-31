@@ -122,6 +122,7 @@ subsubsection={format={\songti \zihao{5} \bfseries},beforeskip=0pt,afterskip=0pt
 
 %===============================================超链接与参考文献===============================================%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}%超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
+\hypersetup{hypertexnames=false}% 关闭 hyperref 使用页码生成超链接锚点的机制，改用内部唯一标识，避免页码重置时出现 "Object @page.1 already defined" 等重复锚点警告
 \usepackage[backend=biber, style=gb7714-2015]{biblatex} %引入现代化的 biblatex 宏包，style=gb7714-2015 符合国内论文规范
 \addbibresource{references.bib}% 指定外部的参考文献数据库文件(你需要新建一个 references.bib 文件)
 \defbibheading{centeredBib}[\bibname]{%封装一个自定义的参考文献标题样式(命名为 centeredBib)
