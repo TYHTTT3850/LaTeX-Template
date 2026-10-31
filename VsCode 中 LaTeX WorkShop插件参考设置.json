@@ -1,0 +1,131 @@
+{
+//------------------------------LaTeX WorkShop 配置----------------------------------
+
+    // 手动编译，使用 Ctrl + Alt + B
+    "latex-workshop.latex.autoBuild.run": "never",
+    // 启用右键菜单
+    "latex-workshop.showContextMenu": true,
+    // 宏包命令和环境自动补全
+    "latex-workshop.intellisense.package.enabled": true,
+    // 显示编译错误通知，关闭警告弹窗
+    "latex-workshop.message.error.show": true,
+    "latex-workshop.message.warning.show": false,
+    // 统一输出 PDF 和辅助文件
+    "latex-workshop.latex.outDir": "%DIR%/Build",
+
+    //---------------- 编译工具 ----------------
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk-xelatex",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk-pdflatex",
+            "command": "latexmk",
+            "args": [
+                "-pdf",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=%OUTDIR%",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    //---------------- 编译链 ----------------
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (XeLaTeX)",
+            "tools": ["latexmk-xelatex"]
+        },
+        {
+            "name": "XeLaTeX",
+            "tools": ["xelatex"]
+        },
+        {
+            "name": "latexmk (pdfLaTeX)",
+            "tools": ["latexmk-pdflatex"]
+        },
+        {
+            "name": "pdfLaTeX",
+            "tools": ["pdflatex"]
+        }
+    ],
+
+    // 默认使用第一条编译链
+    "latex-workshop.latex.recipe.default": "first",
+
+    //---------------- 辅助文件清理 ----------------
+
+    // 编译失败时保留日志和辅助文件
+    "latex-workshop.latex.autoClean.run": "never",
+
+    // 关闭编译出错后的自动清理重试
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+
+    // 手动清理时使用 latexmk
+    "latex-workshop.latex.clean.method": "command",
+
+    // 过滤 dvipdfmx 的 PDF 标签警告
+    "latex-workshop.message.dvipdfmxlog.exclude": [
+        "PDF file is tagged"
+    ],
+
+    //---------------- SumatraPDF 预览 ----------------
+
+    // 使用外部 PDF 查看器
+    "latex-workshop.view.pdf.viewer": "external",
+
+    // 引用链接的 PDF 查看器
+    "latex-workshop.view.pdf.ref.viewer": "auto",
+
+    // 打开 PDF
+    "latex-workshop.view.pdf.external.viewer.command": "D:/SumatraPDF/SumatraPDF.exe",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "-reuse-instance",
+        "%PDF%"
+    ],
+
+    // 正向搜索：VS Code -> SumatraPDF
+    "latex-workshop.view.pdf.external.synctex.command": "D:/SumatraPDF/SumatraPDF.exe",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-reuse-instance",
+        "-forward-search",
+        "%TEX%",
+        "%LINE%",
+        "%PDF%"
+    ]
+}

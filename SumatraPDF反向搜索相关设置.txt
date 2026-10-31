@@ -1,0 +1,11 @@
+# 启用 LaTeX / SyncTeX 支持
+EnableTeXEnhancements = true
+
+# 复用已有的 SumatraPDF 窗口
+ReuseInstance = true
+
+# PDF 文件更新后自动重新加载
+ReloadModifiedDocuments = true
+
+# 反向搜索：双击 PDF 跳转到 VS Code 对应源码行
+InverseSearchCmdLine = "D:\Microsoft VS Code\bin\code.cmd" -r -g "%f:%l"
